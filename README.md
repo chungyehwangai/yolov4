@@ -30,6 +30,7 @@ pip3 install setuptools wheel
 
 pip3 install pillow gdown
 
+# https://github.com/tensorflow/tensorflow/issues/32383
 pip3 install gast==0.2.2
 
 pip3 install tensorflow==1.14
