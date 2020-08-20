@@ -1,0 +1,31 @@
+https://github.com/openvinotoolkit/openvino/blob/master/build-instruction.md
+
+apt remove cmake
+
+pip3 install cmake --upgrade
+
+ln -s /usr/local/bin/cmake /usr/bin/cmake
+
+git clone 
+
+cd openvino
+
+git submodule update --init --recursive
+
+chmod +x install_dependencies.sh
+
+./install_dependencies.sh
+
+mkdir build
+
+cd build
+
+pip3 install cython
+
+cmake -DCMAKE_BUILD_TYPE=Release \
+-DENABLE_PYTHON=ON \
+-DPYTHON_EXECUTABLE=`which python3.6` \
+-DPYTHON_LIBRARY=/usr/lib/x86_64-linux-gnu/libpython3.6m.so \
+-DPYTHON_INCLUDE_DIR=/usr/include/python3.6 ..
+
+make --jobs=$(nproc --all)
